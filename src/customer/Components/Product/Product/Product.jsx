@@ -134,15 +134,35 @@ export default function Product() {
     });
   }, []);
 
-  useEffect(() => {
-    // Simulate initial data fetch when the component mounts
-    // Assuming getSearchPrice is an async function that fetches data
-    getSearchPrice({ min, max }).then((data) => {
-      setSearchProducts(data.hits);
-      // setProducts(data.hits);
-      setLoading(false); // Set loading to false after data is fetched
-    });
-  }, []);
+  // const handlePrice = (e) => {
+  //   e.preventDefault(); // Prevent form submission
+  //   if (min !== "" && max !== "") {
+  //     setLoading(true); // Set loading to true when fetching data
+  //     let priceData = { min, max };
+  //     getSearchPrice(priceData)
+  //       .then((data) => {
+  //         setSearchProducts(data.hits);
+  //         // setProducts(data.hits);
+  //         setLoading(false); // Set loading to false when data is fetched
+  //       })
+  //       .catch((error) => {
+  //         console.log("this is error", error);
+  //         setLoading(false);
+  //         setLength(false);
+  //         // setNoProductFound("");
+  //       });
+  //     setMin("");
+  //     setMax("");
+  //   } else {
+  //     toast.error("Please enter the price range", {
+  //       style: {
+  //         borderRadius: "10px",
+  //         background: "#333",
+  //         color: "#fff",
+  //       },
+  //     });
+  //   }
+  // };
 
   const handlePrice = (e) => {
     e.preventDefault(); // Prevent form submission
@@ -152,14 +172,37 @@ export default function Product() {
       getSearchPrice(priceData)
         .then((data) => {
           setSearchProducts(data.hits);
-          // setProducts(data.hits);
           setLoading(false); // Set loading to false when data is fetched
         })
         .catch((error) => {
           console.log("this is error", error);
           setLoading(false);
           setLength(false);
-          // setNoProductFound("");
+
+          // Show error message in toast
+          if (error.response && error.response.status === 404) {
+            toast.error(
+              error.response.data.error ||
+                "No products found in this price range.",
+              {
+                style: {
+                  borderRadius: "10px",
+                  background: "#333",
+                  color: "#fff",
+                },
+              }
+            );
+
+            setSearchProducts(products);
+          } else {
+            toast.error("An error occurred while fetching data", {
+              style: {
+                borderRadius: "10px",
+                background: "#333",
+                color: "#fff",
+              },
+            });
+          }
         });
       setMin("");
       setMax("");

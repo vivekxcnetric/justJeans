@@ -172,15 +172,16 @@ export const getSearchPrice = (price) => {
         if (response.status === 200) {
           resolve(response.data);
         } else {
+          console.log("error", response);
           reject(new Error("Failed to fetch data"));
         }
       })
       .catch((error) => {
+        console.log("error", error);
         reject(error);
       });
   });
 };
-
 
 export const receiveGetContent = () => {
   return new Promise((resolve, reject) => {

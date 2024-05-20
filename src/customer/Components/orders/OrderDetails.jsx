@@ -96,10 +96,10 @@ const OrderDetails = () => {
         ) : (
           <>
             <div className=" px-2 lg:px-36 space-y-7 ">
-              <Grid container className="p-3 shadow-lg">
-                <Grid xs={12}>
+              <Grid container className="p-3 shadow-lg flex justify-center">
+                {/* <Grid xs={12}>
                   <p className="font-bold text-lg py-2">Shipping Address</p>
-                </Grid>
+                </Grid> */}
                 <Grid item xs={6}>
                   <AddressCard address={address} />
                 </Grid>
