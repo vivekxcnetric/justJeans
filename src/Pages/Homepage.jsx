@@ -103,7 +103,7 @@ const Homepage = () => {
     section={"Tranding Products"}
   /> */}
             <section className=" pt-4">
-              <h1 className="py-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center">
+              <h1 className="py-5 text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center">
                 Update Your Wardrobe With These Styles
               </h1>
 

@@ -321,7 +321,7 @@ export default function Navigation() {
           ))}
         </div> */}
 
-        <ShopSwitcher />
+        {/* <ShopSwitcher /> */}
 
         <nav aria-label="Top" className="mx-auto">
           <div
