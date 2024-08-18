@@ -41,6 +41,16 @@ const Cart = () => {
     // dispatch(removeCartItem(data));
     RemoveCartItemNew(cartItems?.cartItems?.orderId, id).then((res) => {
       dispatch(getCartItems());
+
+      // setCartData((prevState) => ({
+      //   ...prevState,
+      //   cartItems: {
+      //     ...prevState.cartItems,
+      //     orderItem: prevState.cartItems.orderItem.filter(
+      //       (item) => item._id !== id
+      //     ),
+      //   },
+      // }));
     });
   };
 

@@ -1,5 +1,6 @@
 // import { get } from "../api/APIController";
 
+import { redirect } from "react-router-dom";
 import { get } from "../api/config/APIController";
 // import { useDispatch, useSelector } from "react-redux";
 import { getCartItems } from "./cart";
@@ -99,6 +100,8 @@ export const receiveProductsById = (id) => {
           // });
           resolve(response.data);
           // console.log("this is product details response", response);
+        } else {
+          redirect("/search");
         }
       })
       .catch((error) => {

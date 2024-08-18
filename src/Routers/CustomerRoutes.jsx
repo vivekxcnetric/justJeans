@@ -27,6 +27,7 @@ import FooterLeft from "../customer/Components/footer/FooterLeft";
 import styled from "styled-components";
 import FooterBrandList from "../customer/Components/footer/FooterBrandList";
 import ProfilePage from "../Pages/ProfilePage";
+import Search from "../customer/Components/App";
 
 // import SignIn from "../customer/Components/Auth/SignIn";
 
@@ -126,6 +127,8 @@ const CustomerRoutes = () => {
           >
             {" "}
           </Route>
+          <Route path="/search" element={<Search />}></Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
 

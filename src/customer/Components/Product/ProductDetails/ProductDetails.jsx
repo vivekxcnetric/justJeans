@@ -34,6 +34,7 @@ import { grey } from "@mui/material/colors";
 
 import ProductCard from "../ProductCard/ProductCard";
 import Loader from "../../Loader/Loader";
+import PDPPageSkeleton from "../../Loader/PDPPageSkeleton";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -262,7 +263,7 @@ export default function ProductDetails() {
   return (
     <div className="bg-white lg:px-20">
       {loading ? (
-        <Loader />
+        <PDPPageSkeleton />
       ) : (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
@@ -300,7 +301,7 @@ export default function ProductDetails() {
                 >
                   <div className="flex items-center">
                     <a
-                      href={"/shops"}
+                      href={"/search"}
                       className="mr-2 text-sm font-medium text-gray-900"
                     >
                       Products
